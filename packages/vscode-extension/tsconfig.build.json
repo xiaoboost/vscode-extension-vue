@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2018"
+  },
+  "include": ["src", "typings"],
+  "exclude": ["build", "node_modules"]
+}

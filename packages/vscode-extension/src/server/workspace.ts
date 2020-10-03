@@ -1,9 +1,9 @@
-import * as array from 'src/utils/array';
+import * as array from '@xvue/utils/array';
 
 import { lsp } from './utils/store';
 
 import { ServerCapabilities } from 'vscode-languageserver';
-import { isInsidePath, normalize, InputPath } from 'src/language-server/utils/path';
+import { isInsidePath, normalize, InputPath } from './utils/path';
 
 const uris: string[] = [];
 

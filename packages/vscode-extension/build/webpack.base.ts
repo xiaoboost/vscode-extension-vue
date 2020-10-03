@@ -32,7 +32,7 @@ export const baseConfig: Webpack.Configuration = {
     },
     entry: {
         client: resolve('src/client/index.ts'),
-        server: resolve('src/language-server/index.ts'),
+        server: resolve('src/server/index.ts'),
     },
     output: {
         path: outputDir,
@@ -45,7 +45,7 @@ export const baseConfig: Webpack.Configuration = {
         mainFiles: ['index.ts', 'index.js'],
         plugins: [
             new TsconfigPathsPlugin({
-                configFile: resolve('tsconfig.webpack.json'),
+                configFile: resolve('tsconfig.build.json'),
             }),
         ],
     },
@@ -61,7 +61,7 @@ export const baseConfig: Webpack.Configuration = {
                 exclude: /node_modules/,
                 loader: 'ts-loader',
                 options: {
-                    configFile: resolve('tsconfig.webpack.json'),
+                    configFile: resolve('tsconfig.build.json'),
                 },
             },
         ],
@@ -89,10 +89,7 @@ export const baseConfig: Webpack.Configuration = {
         ])),
         new CopyWebpackPlugin({
             patterns: [
-                {
-                    from: resolve('src/language-syntax'),
-                    to: 'syntax',
-                },
+                resolve('assets'),
             ],
         }),
         new ProgressBarPlugin({

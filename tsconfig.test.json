@@ -1,9 +1,0 @@
-{
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "ES2018"
-    },
-    "include": ["src", "tests", "typings"],
-    "exclude": ["build", "node_modules"]
-}

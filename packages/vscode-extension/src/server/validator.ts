@@ -6,7 +6,7 @@ import {
     parse,
     ParserError as VueError,
     Range as VueRange,
-} from 'src/parser-vue';
+} from '@xvue/parser';
 
 import {
     ServerCapabilities,

@@ -1,0 +1,121 @@
+{
+  "type": 0,
+  "range": {
+    "start": {
+      "offset": 0,
+      "line": 1,
+      "col": 1
+    },
+    "end": {
+      "offset": 40,
+      "line": 3,
+      "col": 12
+    }
+  },
+  "children": [
+    {
+      "type": 1,
+      "range": {
+        "start": {
+          "offset": 0,
+          "line": 1,
+          "col": 1
+        },
+        "end": {
+          "offset": 40,
+          "line": 3,
+          "col": 12
+        }
+      },
+      "startTagEnd": {
+        "offset": 10,
+        "line": 1,
+        "col": 11
+      },
+      "endTagStart": {
+        "offset": 29,
+        "line": 3,
+        "col": 1
+      },
+      "tag": "template",
+      "children": [
+        {
+          "type": 5,
+          "text": "\n  ",
+          "range": {
+            "start": {
+              "offset": 10,
+              "line": 1,
+              "col": 11
+            },
+            "end": {
+              "offset": 13,
+              "line": 2,
+              "col": 3
+            }
+          }
+        },
+        {
+          "type": 1,
+          "range": {
+            "start": {
+              "offset": 13,
+              "line": 2,
+              "col": 3
+            },
+            "end": {
+              "offset": 28,
+              "line": 2,
+              "col": 18
+            }
+          },
+          "startTagEnd": {
+            "offset": 18,
+            "line": 2,
+            "col": 8
+          },
+          "endTagStart": {
+            "offset": 22,
+            "line": 2,
+            "col": 12
+          },
+          "tag": "div",
+          "children": [
+            {
+              "type": 5,
+              "text": "标题文字",
+              "range": {
+                "start": {
+                  "offset": 18,
+                  "line": 2,
+                  "col": 8
+                },
+                "end": {
+                  "offset": 22,
+                  "line": 2,
+                  "col": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": 5,
+          "text": "\n",
+          "range": {
+            "start": {
+              "offset": 28,
+              "line": 2,
+              "col": 18
+            },
+            "end": {
+              "offset": 29,
+              "line": 3,
+              "col": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

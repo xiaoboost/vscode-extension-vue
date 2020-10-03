@@ -2,7 +2,7 @@ import { URI } from 'vscode-uri';
 import { WorkspaceFolder } from 'vscode-languageserver';
 
 import * as path from 'path';
-import * as assert from 'src/utils/assert';
+import * as assert from '@xvue/utils/assert';
 
 export type InputPath = string | URI | WorkspaceFolder;
 

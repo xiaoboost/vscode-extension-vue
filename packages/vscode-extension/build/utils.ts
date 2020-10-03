@@ -53,7 +53,7 @@ export const builtinModules = [
 
 /** node_modules 模块 */
 export const externalModules = (() => {
-    const file = fs.readFileSync(resolve('pnpm-lock.yaml'));
+    const file = fs.readFileSync(resolve('../../', 'pnpm-lock.yaml'));
     const lock = yaml.parse(file.toString());
     const packages = Object.keys(lock.packages).map((pack) => {
         const matcher = /\/[^\/]+$/g.exec(pack);

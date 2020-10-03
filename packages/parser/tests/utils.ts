@@ -6,9 +6,7 @@ import { parse as origin, walk, ParserOptions, Root } from 'src/parser-vue';
 
 type ParserParameter = Parameters<typeof origin>;
 
-const resolve = (...dirs: string[]) => path.resolve(__dirname, '..', ...dirs);
-
-console.log(__dirname);
+const resolve = (...dirs: string[]) => path.resolve(__dirname, '../..', ...dirs);
 
 export function parse(...params: ParserParameter) {
     const result = origin(...params);

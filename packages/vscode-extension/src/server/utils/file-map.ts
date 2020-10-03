@@ -1,4 +1,4 @@
-import { Root } from 'src/parser-vue';
+import { Root } from '@xvue/parser';
 import { normalize, InputPath } from './path';
 
 const map: Record<string, Root | undefined> = {};
