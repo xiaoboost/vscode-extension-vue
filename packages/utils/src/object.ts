@@ -6,15 +6,6 @@ import {
 } from './assert';
 
 /**
- * 检查 key 是否存在于 obj 对象中
- * @param obj 检查对象
- * @param key 检查的属性名称
- */
-export function hasOwn(obj: object, key: string): boolean {
-    return Object.prototype.hasOwnProperty.call(obj, key);
-}
-
-/**
  * 对象是否为空
  * @param obj 待检测对象
  */
@@ -84,26 +75,6 @@ export function def(from: object, properties: object) {
             value,
         }),
     );
-}
-
-/** 编译 JSON */
-export function parserBody<T = any>(body: T | string): T {
-    let data = body;
-
-    if (!body) {
-        data = {} as any;
-    }
-    else if (typeof body === 'string') {
-        try {
-            data = JSON.parse(body);
-        }
-        catch (e) {
-            data = {} as any;
-            console.warn(`JSON 格式错误: ${body}`);
-        }
-    }
-
-    return data as T;
 }
 
 /**
@@ -189,5 +160,5 @@ export function copyProperties<T extends object, U extends keyof T>(from: T, key
         data[key] = from[key];
     }
 
-    return clone(data);
+    return data;
 }

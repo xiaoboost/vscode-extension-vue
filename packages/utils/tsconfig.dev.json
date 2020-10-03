@@ -2,7 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "dev",
-    "sourceMap": true
+    "module": "CommonJS",
+    "sourceMap": true,
+    "inlineSourceMap": false
   },
   "include": ["src", "typings"]
 }

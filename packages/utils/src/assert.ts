@@ -128,16 +128,6 @@ export function isRegExp(x: unknown): x is RegExp {
 }
 
 /**
- * 断言：输入是否是 DOM 元素
- *
- * @param {*} x
- * @returns {x is HTMLElement}
- */
-export function isElement(x: unknown): x is HTMLElement {
-    return (/^\[object (HTML|SVG)([a-zA-Z]+)?Element\]$/.test(_toString.call(x) as string));
-}
-
-/**
  * 断言：输入是否是基础类型
  *
  * @param {*} x

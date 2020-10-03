@@ -29,7 +29,7 @@
       "tsconfig-paths/register.js"
     ],
     "environmentVariables": {
-      "TS_NODE_PROJECT": "tsconfig.test.json"
+      "TS_NODE_PROJECT": "tsconfig.json"
     },
     "files": [
       "tests/**/*.spec.ts"
