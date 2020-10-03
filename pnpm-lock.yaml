@@ -14,6 +14,7 @@ importers:
       tslib: 2.0.1
     devDependencies:
       '@types/line-column': 1.0.0
+      '@types/node': 14.11.2
       ava: 3.13.0
       nyc: 15.1.0
       rimraf: 3.0.2
@@ -22,6 +23,7 @@ importers:
       typescript: 4.0.3
     specifiers:
       '@types/line-column': ^1.0.0
+      '@types/node': ^14.11.2
       '@xvue/utils': 'workspace:*'
       ava: ^3.13.0
       line-column: ^1.0.2
@@ -449,6 +451,11 @@ packages:
     resolution:
       integrity: sha1-Vq+QKtFX52P5umPWccOc2jGTyDU=
       tarball: '@types/node/download/@types/node-14.11.1.tgz?cache=0&sync_timestamp=1600744254286&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.11.1.tgz'
+  /@types/node/14.11.2:
+    dev: true
+    resolution:
+      integrity: sha1-LeHtZnBDk4faHJ9UmireKwp5klY=
+      tarball: '@types/node/download/@types/node-14.11.2.tgz?cache=0&sync_timestamp=1600744254286&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.11.2.tgz'
   /@types/normalize-package-data/2.4.0:
     dev: true
     resolution:

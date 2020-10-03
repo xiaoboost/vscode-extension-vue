@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import { DeepEqualAssertion } from 'ava';
-import { parse as origin, walk, ParserOptions, Root } from 'src/parser-vue';
+import { parse as origin, walk, ParserOptions, Root } from 'src';
 
 type ParserParameter = Parameters<typeof origin>;
 

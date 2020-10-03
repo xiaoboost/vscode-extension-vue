@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/line-column": "^1.0.0",
+    "@types/node": "^14.11.2",
     "ava": "^3.13.0",
     "nyc": "^15.1.0",
     "rimraf": "^3.0.2",
