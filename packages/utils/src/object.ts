@@ -24,11 +24,7 @@ export function isEqual(from: any, to: any, deepCheck = false): boolean {
     }
 
     if (deepCheck && checkCircularStructure(from)) {
-        throw new Error('(isEqual) Can not have circular structure.');
-    }
-
-    if (isFunc(from.isEqual)) {
-        return Boolean(from.isEqual(to));
+        throw new Error('Can not equal object that have circular structure.');
     }
 
     if (isArray(from)) {
@@ -59,22 +55,6 @@ export function isEqual(from: any, to: any, deepCheck = false): boolean {
             );
         }
     }
-}
-
-/**
- * 在对象中添加隐藏属性
- * @param from 待添加属性的对象
- * @param properties 添加的属性
- */
-export function def(from: object, properties: object) {
-    Object.entries(properties).forEach(
-        ([key, value]) => Object.defineProperty(from, key, {
-            configurable: true,
-            writable: true,
-            enumerable: false,
-            value,
-        }),
-    );
 }
 
 /**
