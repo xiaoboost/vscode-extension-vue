@@ -118,16 +118,6 @@ export function isArray(x: unknown): x is any[] {
 }
 
 /**
- * 断言：输入是否是正则表达式
- *
- * @param {*} x
- * @returns {x is RegExp}
- */
-export function isRegExp(x: unknown): x is RegExp {
-    return _toString.call(x) === '[object RegExp]';
-}
-
-/**
  * 断言：输入是否是基础类型
  *
  * @param {*} x

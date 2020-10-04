@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": ".",
     "module": "ESNext",
-    "sourceMap": false
+    "sourceMap": false,
+    "inlineSourceMap": false
   },
   "include": ["src", "typings"]
 }
