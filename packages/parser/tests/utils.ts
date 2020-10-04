@@ -6,7 +6,7 @@ import { parse as origin, walk, ParserOptions, Root } from 'src';
 
 type ParserParameter = Parameters<typeof origin>;
 
-const resolve = (...dirs: string[]) => path.resolve(__dirname, '../..', ...dirs);
+const resolve = (...dirs: string[]) => path.resolve(__dirname, '..', ...dirs);
 
 export function parse(...params: ParserParameter) {
     const result = origin(...params);

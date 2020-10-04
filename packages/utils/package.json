@@ -8,8 +8,7 @@
   "types": ".",
   "scripts": {
     "clear": "rimraf ./*.js ./*.d.ts",
-    "test": "ava",
-    "test:report": "nyc ava",
+    "test": "nyc ava",
     "dev": "tsc -w -p ./tsconfig.dev.json",
     "build": "pnpm run clear && tsc -p ./tsconfig.build.json",
     "prepare": "pnpm run build"

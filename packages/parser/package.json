@@ -1,9 +1,9 @@
 {
   "name": "@xvue/parser",
   "version": "1.0.0",
-  "description": "",
+  "description": "vue parser",
   "author": "xiaoboost",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/cjs",
   "module": "dist/es",
   "types": "dist/types",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "clear": "rimraf ./dist",
+    "test": "nyc ava",
     "dev": "tsc -p ./tsconfig.build.json --outDir ./dev --declarationDir ./dev -w",
     "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./dist/cjs --module commonjs",
     "build:es": "tsc -p ./tsconfig.build.json --outDir ./dist/es  --module esnext",

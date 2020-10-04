@@ -1,0 +1,6 @@
+{
+  "all": true,
+  "reporter": ["text", "lcov"],
+  "include": ["src/**/*.ts"],
+  "useSpawnWrap": true
+}
