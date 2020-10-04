@@ -27,7 +27,7 @@ export function get<T>(arr: T[], index: number): T {
 
 /**
  * 删除满足条件的元素
- *  - 直接在原数组中操作
+ *  - 在原数组中操作
  *  - predicate 为函数时，删除 predicate 返回 true 的元素
  *  - predicate 为非函数时，删除与 predicate 严格相等的元素
  *  - 当 whole 为 false 时，只删除匹配到的第一个元素；为 true 时，删除所有匹配到的元素
@@ -53,42 +53,28 @@ export function removeVal<T>(arr: T[], predicate: T | Predicate<T>, whole = true
 }
 
 /**
- * 删除满足条件的元素
- *  - 原数组不变，返回新数组
- *  - predicate 为函数时，删除 predicate 返回 true 的元素
- *  - predicate 为非函数时，删除与 predicate 严格相等的元素
- *  - 当 whole 为 false 时，只删除匹配到的第一个元素；为 true 时，删除所有匹配到的元素
- */
-export function deleteVal<T>(arr: T[], predicate: T | Predicate<T>, whole = true) {
-    return removeVal(arr.slice(), predicate, whole);
-}
-
-/**
- * 删除满足条件的元素
- *  - 原数组不变，返回新数组
+ * 替换满足条件的元素
+ *  - 在原数组不变
  *  - predicate 为函数时，删除 predicate 返回 true 的元素
  *  - predicate 为非函数时，删除与 predicate 严格相等的元素
  */
 export function replace<T>(arr: T[], newVal: T, predicate: T | Predicate<T>, whole = false) {
     const fn = isFunc(predicate) ? predicate : (item: T) => item === predicate;
-    const newArr = arr.slice();
 
-    for (let i = 0; i < newArr.length; i++) {
-        const item = newArr[i];
+    for (let i = 0; i < arr.length; i++) {
+        const item = arr[i];
         const compared = fn(item, i);
 
         if (compared) {
-            newArr.splice(i, 1, newVal);
+            arr.splice(i, 1, newVal);
 
             if (!whole) {
                 break;
             }
-
-            i++;
         }
     }
 
-    return newArr;
+    return arr;
 }
 
 /**
@@ -114,7 +100,7 @@ export function cut<T>(arr: T[], number: number): T[][] {
 export function unique<T extends Index>(arr: T[]): T[];
 export function unique<T>(arr: T[], label: (value: T, index: number) => Index): T[];
 export function unique<T>(arr: T[], label?: (value: T, index: number) => Index): T[] {
-    let labelMap: Record<Index, boolean>;
+    let labelMap: Record<Index, boolean> = {};
 
     if (isDef(label)) {
         return arr
@@ -123,13 +109,12 @@ export function unique<T>(arr: T[], label?: (value: T, index: number) => Index):
             .map(({ value }) => value);
     }
     else {
-        labelMap = toBoolMap(arr as any);
-        return arr.filter((item) => !labelMap[item as any]);
+        return arr.filter((key) => (labelMap[key as any] ? false : (labelMap[key as any] = true)));
     }
 }
 
 /** 连接数组 */
-export function concat<T, U>(from: T[], callback: (val: T) => U[] | undefined): U[] {
+export function concat<T, U>(from: T[], callback: (val: T) => U | U[] | undefined): U[] {
     let result: U[] = [];
 
     for (let i = 0; i < from.length; i++) {
