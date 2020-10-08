@@ -311,7 +311,7 @@ class Parser {
                         parent: node,
                         range,
                         value: {
-                            value: '',
+                            value: true,
                         },
                         name: {
                             value: scanner.tokenText,
@@ -350,6 +350,15 @@ class Parser {
                 }
                 case TokenKind.AttributeMark: {
                     (this.curNode as Attribute).range.end = this.positionAt(scanner.tokenEnd);
+                    break;
+                }
+                case TokenKind.AttributeDelimiter: {
+                    const attr = this.curNode as Attribute | Command;
+
+                    // 有等号，默认值改为空字符串
+                    attr.value.value = '';
+                    attr.range.end = this.positionAt(scanner.tokenEnd);
+
                     break;
                 }
                 case TokenKind.CommandName:

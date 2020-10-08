@@ -216,6 +216,7 @@ export class Scanner {
                         return this.finishToken(startOffset, TokenKind.CommandName);
                     }
 
+                    // 属性名称
                     if (pointer.advanceIfRegExp(AttributeName).length > 0) {
                         this._hasSpaceAfterTag = false;
                         this.state = ScannerState.AfterAttributeName;
@@ -223,35 +224,28 @@ export class Scanner {
                         return this.finishToken(startOffset, TokenKind.AttributeName);
                     }
                 }
-                else {
-                    // '/>'
-                    if (pointer.advanceIfChars([code.FSL, code.RAN])) {
+
+                // '/>'
+                if (pointer.advanceIfChars([code.FSL, code.RAN])) {
+                    this.state = ScannerState.WithinContent;
+                    return this.finishToken(startOffset, TokenKind.StartTagSelfClose);
+                }
+
+                // '>'
+                if (pointer.advanceIfChar(code.RAN)) {
+                    const tagName = this._lastTag.toLowerCase();
+
+                    if (tagName === 'script') {
+                        this.state = ScannerState.WithinScriptContent;
+                    }
+                    else if (tagName === 'style') {
+                        this.state = ScannerState.WithinStyleContent;
+                    }
+                    else {
                         this.state = ScannerState.WithinContent;
-                        return this.finishToken(startOffset, TokenKind.StartTagSelfClose);
                     }
 
-                    // '>'
-                    if (pointer.advanceIfChar(code.RAN)) {
-                        const tagName = this._lastTag.toLowerCase();
-
-                        if (tagName === 'script') {
-                            this.state = ScannerState.WithinScriptContent;
-                        }
-                        else if (tagName === 'style') {
-                            this.state = ScannerState.WithinStyleContent;
-                        }
-                        else {
-                            this.state = ScannerState.WithinContent;
-                        }
-
-                        return this.finishToken(startOffset, TokenKind.StartTagClose);
-                    }
-
-                    // '<'
-                    if (pointer.peekChar() === code.LAN) {
-                        this.state = ScannerState.WithinContent;
-                        return this.finishToken(startOffset, TokenKind.StartTagClose, errorText.closingBracketMissing);
-                    }
+                    return this.finishToken(startOffset, TokenKind.StartTagClose);
                 }
 
                 pointer.advance(1);
@@ -261,7 +255,6 @@ export class Scanner {
                 const startChar = pointer.peekChar();
                 const lastChar = pointer.peekChar(-1);
 
-                debugger;
                 // 当前字符是 ':'，或者上一个字符是 '@'、':'
                 if (startChar === code.COL || lastChar === code.COL || lastChar === code.AT) {
                     if (pointer.advanceIfRegExp(CommandArg).length > 0) {
@@ -351,8 +344,7 @@ export class Scanner {
                         return this.finishToken(startOffset, TokenKind.AttributeMark);
                     }
                     else {
-                        const markChar = String.fromCharCode(this._lastAttrMark);
-                        pointer.advanceUntilRegExp(new RegExp(`({{|${markChar})`));
+                        pointer.advanceUntilChar(this._lastAttrMark);
                         return this.finishToken(startOffset, TokenKind.AttributeValue);
                     }
                 }

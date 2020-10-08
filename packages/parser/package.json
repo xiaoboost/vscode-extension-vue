@@ -14,7 +14,7 @@
   "scripts": {
     "clear": "rimraf ./dist",
     "test": "nyc ava",
-    "dev": "tsc -p ./tsconfig.build.json --outDir ./dev --declarationDir ./dev -w",
+    "dev": "tsc -w -p ./tsconfig.dev.json",
     "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./dist/cjs --module commonjs",
     "build:es": "tsc -p ./tsconfig.build.json --outDir ./dist/es  --module esnext",
     "build": "pnpm run clear && pnpm run build:cjs && pnpm run build:es",
@@ -40,11 +40,11 @@
     "@xvue/utils": "workspace:*",
     "line-column": "^1.0.2",
     "path-browserify": "^1.0.1",
-    "tslib": "^2.0.1"
+    "tslib": "^2.0.2"
   },
   "devDependencies": {
     "@types/line-column": "^1.0.0",
-    "@types/node": "^14.11.2",
+    "@types/node": "^14.11.5",
     "ava": "^3.13.0",
     "nyc": "^15.1.0",
     "rimraf": "^3.0.2",

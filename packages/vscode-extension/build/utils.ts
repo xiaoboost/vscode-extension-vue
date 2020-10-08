@@ -24,17 +24,14 @@ export const builtinModules = [
 export const externalModules = (() => {
     const file = fs.readFileSync(resolve('../../', 'pnpm-lock.yaml'));
     const lock = yaml.parse(file.toString());
-    const packages = Object.keys(lock.packages).map((pack) => {
-        const matcher = /\/[^\/]+$/g.exec(pack);
+    const packages = Object.keys(lock.packages)
+        .map((pack) => {
+            const matcher = /\/[^\/]+$/g.exec(pack);
+            return matcher ? pack.substring(1, matcher.index) : null;
+        })
+        .filter((item): item is string => Boolean(item));
 
-        if (!matcher) {
-            return null;
-        }
-
-        return pack.substring(1, matcher.index);
-    });
-
-    return packages.filter((item): item is string => Boolean(item));
+    return packages;
 })();
 
 /** 按照 key 复制对象 */
