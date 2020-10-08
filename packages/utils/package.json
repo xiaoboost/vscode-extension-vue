@@ -4,14 +4,23 @@
   "description": "utils for xvue",
   "author": "xiaoboost",
   "license": "ISC",
-  "module": ".",
+  "module": "./dist/es",
+  "main": "./dist/cjs",
   "types": ".",
   "scripts": {
-    "clear": "rimraf ./*.js ./*.d.ts",
     "test": "nyc ava",
-    "dev": "tsc -w -p ./tsconfig.dev.json",
-    "build": "pnpm run clear && tsc -p ./tsconfig.build.json",
+    "clear": "rimraf ./*.d.ts",
+    "dev": "tsc -w -p ./tsconfig.dev.json --outDir ./dev --declarationDir ./dev",
+    "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./dist/cjs --module commonjs",
+    "build:es": "tsc -p ./tsconfig.build.json --outDir ./dist/es  --module esnext",
+    "build": "pnpm run clear && pnpm run build:cjs && pnpm run build:es",
     "prepare": "pnpm run build"
+  },
+  "exports": {
+    "./*": {
+      "import": "./dist/es/*.js",
+      "require": "./dist/cjs/*.js"
+    }
   },
   "ava": {
     "serial": true,

@@ -4,7 +4,6 @@
     "outDir": "./dev",
     "declarationDir": "./dev",
     "sourceMap": true,
-    "inlineSourceMap": false,
     "module": "CommonJS"
   },
   "include": ["src", "typings"]

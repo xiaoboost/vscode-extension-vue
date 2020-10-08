@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "inlineSourceMap": true,
+    "outDir": "./dist",
     "strict": true,
     "declaration": true,
+    "sourceMap": true,
+    "inlineSourceMap": false,
     "declarationMap": false,
     "strictPropertyInitialization": true,
     "moduleResolution": "node",

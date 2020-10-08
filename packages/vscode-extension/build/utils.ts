@@ -1,7 +1,8 @@
 import * as path from 'path';
 import * as yaml from 'yaml';
-
 import * as fs from 'fs';
+
+import { builtinModules as originBuiltinModules } from 'module';
 
 export const isDevelopment = process.argv.includes('--development');
 export const isAnalyzer = process.argv.includes('--analyze');
@@ -15,39 +16,7 @@ export const outputDir = resolve('dist/generated');
 
 /** nodejs 内置模块 */
 export const builtinModules = [
-    'process',
-    'buffer',
-    'util',
-    'sys',
-    'events',
-    'stream',
-    'path',
-    'querystring',
-    'punycode',
-    'url',
-    'string_decoder',
-    'http',
-    'https',
-    'os',
-    'assert',
-    'constants',
-    'timers',
-    'console',
-    'vm',
-    'zlib',
-    'tty',
-    'domain',
-    'dns',
-    'dgram',
-    'child_process',
-    'cluster',
-    'module',
-    'net',
-    'readline',
-    'repl',
-    'tls',
-    'crypto',
-    'fs',
+    ...originBuiltinModules,
     'vscode',
 ];
 

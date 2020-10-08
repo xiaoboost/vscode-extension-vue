@@ -1,0 +1,32 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Node Debug",
+            "program": "${workspaceFolder}/draft/test.js"
+        },
+        {
+            "type": "pwa-extensionHost",
+            "request": "launch",
+            "name": "Launch Client",
+            "runtimeExecutable": "${execPath}",
+            "args": ["--extensionDevelopmentPath=${workspaceRoot}/dist/generated"]
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Server",
+            "port": 6009,
+            "restart": true
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Client + Server",
+            "configurations": ["Launch Client", "Attach to Server"]
+        }
+    ]
+}

@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "declarationDir": "dist/types",
     "sourceMap": true,
+    "inlineSourceMap": false,
     "strict": true,
     "declaration": true,
     "declarationMap": false,
     "strictPropertyInitialization": true,
     "moduleResolution": "node",
-    "target": "ESNext",
-    "module": "commonjs",
+    "target": "ES2018",
+    "module": "CommonJS",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,

@@ -48,6 +48,9 @@ export const baseConfig: Webpack.Configuration = {
                 configFile: resolve('tsconfig.build.json'),
             }),
         ],
+        alias: {
+            '@xvue/utils': '@xvue/utils/dist/es',
+        },
     },
     performance: {
         hints: false,

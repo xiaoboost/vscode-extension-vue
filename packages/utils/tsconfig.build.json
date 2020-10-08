@@ -2,9 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": ".",
-    "module": "ESNext",
+    "declarationDir": ".",
     "sourceMap": false,
-    "inlineSourceMap": false
+    "inlineSourceMap": false,
+    "module": "ESNext"
   },
   "include": ["src", "typings"]
 }
