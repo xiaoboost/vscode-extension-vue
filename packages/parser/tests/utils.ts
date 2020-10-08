@@ -24,7 +24,7 @@ export function readCase(name: string, opt: TestParserOptions = {}) {
     const basicPath = 'tests/screenshot';
     const workspace = resolve('tests');
     const filePath = resolve(basicPath, name + '.vue');
-    const content = fs.readFileSync(filePath, 'utf-8').trim();
+    const content = fs.readFileSync(filePath, 'utf-8');
     const expect = JSON.parse(fs.readFileSync(resolve(basicPath, name + '.json'), 'utf-8')) as Root;
     const origin = parse(content, {
         ...opt,

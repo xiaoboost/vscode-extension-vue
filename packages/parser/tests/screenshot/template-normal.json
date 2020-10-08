@@ -7,9 +7,9 @@
       "col": 1
     },
     "end": {
-      "offset": 40,
+      "offset": 41,
       "line": 3,
-      "col": 12
+      "col": 13
     }
   },
   "children": [
@@ -116,6 +116,22 @@
           }
         }
       ]
+    },
+    {
+      "type": 5,
+      "text": "\n",
+      "range": {
+        "start": {
+          "offset": 40,
+          "line": 3,
+          "col": 12
+        },
+        "end": {
+          "offset": 41,
+          "line": 3,
+          "col": 13
+        }
+      }
     }
   ]
 }
